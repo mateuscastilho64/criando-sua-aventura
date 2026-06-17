@@ -1,0 +1,274 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES (Custom Properties para Modo Escuro Fácil)
+   ========================================================================== */
+:root {
+    --bg-principal: #f0fdf4;
+    --bg-cartao: #ffffff;
+    --texto-principal: #1b3d2f;
+    --texto-secundario: #4a5568;
+    
+    /* Cores temáticas vibrantes do Edital Agrinho */
+    --cor-html-css: #ff5722;      /* Laranja */
+    --cor-ux-acessivel: #9c27b0;  /* Roxo */
+    --cor-ia-critica: #00bcd4;    /* Ciano */
+    --cor-social: #4caf50;        /* Verde */
+    
+    --cor-primaria: #2e7d32;
+    --cor-primaria-escura: #1b5e20;
+    --borda: #e2e8f0;
+}
+
+/* Ativado via JavaScript: body.classList.toggle('dark-mode') */
+body.dark-mode {
+    --bg-principal: #121212;
+    --bg-cartao: #1e1e1e;
+    --texto-principal: #f7fafc;
+    --texto-secundario: #cbd5e0;
+    --borda: #2d3748;
+}
+
+/* ==========================================================================
+   2. CONFIGURAÇÕES GLOBAIS E ESTRUTURA
+   ========================================================================== */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   3. HEADER E COMPONENTES DE TOPO
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, #1b5e20 0%, #4caf50 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sub-header {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+nav a:hover {
+    border-color: #ffeb3b;
+    color: #ffeb3b;
+}
+
+/* ==========================================================================
+   4. TITULARES E CARTÕES DE CONTEÚDO
+   ========================================================================== */
+.titulo-secao {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--cor-primaria-escura);
+    margin-bottom: 35px;
+}
+
+/* Grande Desafio Social */
+.cartao-pergunta {
+    background: linear-gradient(135deg, #2e7d32 0%, #1565c0 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cartao-pergunta h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+/* ==========================================================================
+   5. GRID DOS PILARES (CSS Grid Moderno)
+   ========================================================================== */
+.grid-praticas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.item-pratica {
+    background-color: var(--bg-cartao);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 8px solid var(--cor-primaria);
+}
+
+.item-pratica:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.item-pratica h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* Estilos de bordas e títulos individuais dos pilares */
+.pilar-1 { border-left-color: var(--cor-html-css); }
+.pilar-1 h3 { color: var(--cor-html-css); }
+
+.pilar-2 { border-left-color: var(--cor-ux-acessivel); }
+.pilar-2 h3 { color: var(--cor-ux-acessivel); }
+
+.pilar-3 { border-left-color: var(--cor-ia-critica); }
+.pilar-3 h3 { color: var(--cor-ia-critica); }
+
+.pilar-4 { border-left-color: var(--cor-social); }
+.pilar-4 h3 { color: var(--cor-social); }
+
+/* ==========================================================================
+   6. TRILHA E BARRAS DE PROGRESSO (Flexbox)
+   ========================================================================== */
+.container-progresso {
+    background-color: var(--bg-cartao);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.linha-progresso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--borda);
+}
+
+.linha-progresso:last-child {
+    border-bottom: none;
+}
+
+.barra-fundo {
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    width: 150px;
+    height: 12px;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+.barra-sucesso {
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    height: 100%;
+    border-radius: 10px;
+}
+
+.badge-porcentagem {
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.bg-concluido { background-color: #e8f5e9; color: #2e7d32; }
+.bg-pendente { background-color: #edf2f7; color: #4a5568; }
+
+/* ==========================================================================
+   7. INTERATIVIDADE E BOTÕES (Microinterações)
+   ========================================================================== */
+.btn-secundario, .btn-simula {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+}
+
+.btn-secundario:hover, .btn-simula:hover {
+    background-color: #e65100;
+    transform: scale(1.05);
+}
+
+.botoes-simulador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Painéis de Resultados Dinâmicos */
+#resultado-painel {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.escondido { display: none; }
+.sucesso { background-color: #e8f5e9; color: #2e7d32; border: 2px solid #2e7d32; }
+.perigo { background-color: #ffebee; color: #c62828; border: 2px solid #c62828; }
+
+/* Rodapé */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Responsividade Exigida)
+   ========================================================================== */
+@media (max-width: 868px) {
+    .grid-praticas {
+        grid-template-columns: 1fr; /* Vira coluna única no celular */
+    }
+    .linha-progresso {
+        flex-direction: column; /* Empilha textos e barras no progresso */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .barra-fundo {
+        width: 100%; /* Barra de progresso ocupa largura total no celular */
+        margin-left: 0;
+    }
+    .botoes-simulador {
+        flex-direction: column; /* Botões empilham na vertical */
+    }
+}

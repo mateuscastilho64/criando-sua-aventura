@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável - Agrinho</title>
+    <style>
+        /* CONFIGURAÇÕES GLOBAIS (Tema Sustentável) */
+        :root {
+            --verde-agro: #1b5e20;
+            --verde-claro: #4caf50;
+            --fundo: #f4f7f4;
+            --card: #ffffff;
+            --texto: #212d22;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background: var(--fundo); color: var(--texto); line-height: 1.6; }
+        section { padding: 4rem 8%; }
+        
+        /* CABEÇALHO */
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 8%; background: var(--card); border-bottom: 1px solid #ddd;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo span { color: var(--verde-claro); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: var(--texto); font-weight: bold; }
+        
+        /* NOVO MANCHETE INTERATIVO (SPLIT SCREEN) */
+        .hero {
+            display: grid; grid-template-columns: 1.2fr 0.8fr;
+            min-height: 70vh; background: var(--card); padding: 0; overflow: hidden;
+        }
+        .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 3rem 8%; }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--verde-agro); }
+        .hero-text p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
+        .btn {
+            background: var(--verde-agro); color: white; padding: 0.8rem 2rem;
+            text-decoration: none; border-radius: 20px; font-weight: bold; width: fit-content;
+        }
+
+        /* GALERIA SANFONA INTERATIVA (Mova o mouse para expandir) */
+        .hero-gallery { display: flex; background: #000; height: 100%; }
+        .gallery-item {
+            flex: 1; height: 100%; position: relative; overflow: hidden; cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); filter: brightness(0.6);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Foto ativa expande na tela */
+        .gallery-item.active { flex: 3; filter: brightness(1); }
+        .item-label {
+            position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.8); color: white; padding: 0.4rem 1rem;
+            border-radius: 10px; font-size: 0.8rem; pointer-events: none; opacity: 0;
+        }
+        .gallery-item.active .item-label { opacity: 1; }
+
+        /* CONTADORES ANIMADOS */
+        .stats { background: var(--verde-agro); color: white; text-align: center; }
+        .stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; }
+        .stat-number { font-size: 3.5rem; font-weight: bold; color: var(--verde-claro); }
+
+        /* FORMULÁRIO DE CONTATO */
+        .contact { background: var(--card); max-width: 600px; margin: 3rem auto; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+        .form-group input, .form-group textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; }
+        .btn-submit { background: var(--verde-agro); color: white; border: none; padding: 0.9rem; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+        /* RESPONSIVIDADE PARA CELULAR */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-gallery { height: 300px; }
+            .nav-links { display: none; } /* Oculta menu no mobile para simplificar código */
+            .hero-text h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <div class="logo"><h2>Agro<span>Sustentável</span></h2></div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#dados">Indicadores</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <!-- HERO / MANCHETE -->
+        <section id="inicio" class="hero">
+            <div class="hero-text">
+                <h1>Agro Forte,<br>Futuro Sustentável</h1>
+                <p>O equilíbrio real entre a força produtiva das nossas lavouras e a preservação ativa da natureza.</p>
+                <a href="#contato" class="btn">Fale Conosco</a>
+            </div>
+
+            <!-- Galeria Interativa com a Foto do Trabalho do Agrinho -->
+            <div class="hero-gallery">
+                <!-- Foto 1: Passeio Escolar com Alunos (Imagem que você enviou!) -->
+                <div class="gallery-item active">
+                    <img src="https://ibb.co" alt="Visita pedagógica Agrinho">
+                    <span class="item-label">Vivência Campo</span>
+                </div>
+                <!-- Foto 2: Tecnologia -->
+                <div class="gallery-item">
+                    <img src="https://unsplash.com" alt="Drones e Tecnologia">
+                    <span class="item-label">Inovação Rural</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDICADORES DINÂMICOS -->
+        <section id="dados" class="stats">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number" data-target="85">0</div>
+                    <p>% Economia de Água</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="1400">0</div>
+                    <p>Hectares Protegidos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section id="contato">
+            <div class="contact">
+                <h2 style="text-align:center; margin-bottom:1.5rem;">Contato da Equipe</h2>
+                <form class="contact-form" onsubmit="alert('Obrigado pelo contato!'); return false;">
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem:</label>
+                        <textarea rows="4" placeholder="Sua sugestão para o Agrinho..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar dados</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align:center; padding:1.5rem; background:#111; color:#aaa; font-size:0.9rem;">
+        <p>&copy; 2026 Concurso Agrinho | Desenvolvido pelo 2º Ano</p>
+    </footer>
+
+    <!-- LOGICA DE INTERATIVIDADE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Controle da Galeria Sanfona (Passar o mouse expande)
+            const items = document.querySelectorAll(".gallery-item");
+            items.forEach(item => {
+                item.addEventListener("mouseenter", () => {
+                    items.forEach(i => i.classList.remove("active"));
+                    item.classList.add("active");
+                });
+            });
+
+            // Controle dos Números que sobem sozinhos ao carregar
+            const counters = document.querySelectorAll(".stat-number");
+            counters.forEach(counter => {
+                const update = () => {
+                    const target = +counter.getAttribute("data-target");
+                    const current = +counter.innerText;
+                    const increment = target / 50;
+
+                    if(current < target) {
+                        counter.innerText = Math.ceil(current + increment);
+                        setTimeout(update, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                update();
+            });
+        });
+    </script>
+</body>
+</html>
